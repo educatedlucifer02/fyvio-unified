@@ -1,10 +1,16 @@
-from backend.config import Telegram
 import uvicorn
-from backend.fastapi.main import app
 
-# Fetch host and port from the Telegram configuration
-Port = Telegram.PORT
+# Delay importing FastAPI app to avoid circular imports
 
-# Set up Uvicorn configuration with the specified host and port
-config = uvicorn.Config(app=app, host='0.0.0.0', port=Port)
-server = uvicorn.Server(config)
+def create_server(host: str = "0.0.0.0", port: int = 8000):
+    from backend.fastapi.main import app  # local import to break circular dependency
+    config = uvicorn.Config(app=app, host=host, port=port)
+    return uvicorn.Server(config)
+
+# Provide a module-level server constructed with default env if available
+try:
+    from backend.config import Telegram
+    server = create_server(port=getattr(Telegram, "PORT", 8000))
+except Exception:
+    # Fallback during import time; caller can use create_server() explicitly
+    server = create_server()
