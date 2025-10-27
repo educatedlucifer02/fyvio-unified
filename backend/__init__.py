@@ -1,5 +1,5 @@
-from Backend.logger import LOGGER 
-from Backend.helper.database import Database
+from backend.logger import LOGGER 
+from backend.helper.database import Database
 from time import time
 from datetime import datetime
 import pytz
