@@ -1,6 +1,6 @@
-from Backend.config import Telegram
+from backend.config import Telegram
 import uvicorn
-from Backend.fastapi.main import app
+from backend.fastapi.main import app
 
 # Fetch host and port from the Telegram configuration
 Port = Telegram.PORT
