@@ -1,12 +1,12 @@
 from asyncio import get_event_loop, sleep as asleep
 from traceback import format_exc
 from pyrogram import idle
-from Backend import __version__, db
-from Backend.logger import LOGGER
-from Backend.fastapi import server
-from Backend.helper.pyro import restart_notification
-from Backend.pyrofork import StreamBot
-from Backend.pyrofork.clients import initialize_clients
+from backend import __version__, db
+from backend.logger import LOGGER
+from backend.fastapi import server
+from backend.helper.pyro import restart_notification
+from backend.pyrofork import StreamBot
+from backend.pyrofork.clients import initialize_clients
 
 loop = get_event_loop()
 
