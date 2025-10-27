@@ -26,7 +26,6 @@ export default function Home() {
       .get(`${BASE}/api/movies`, {
         params: {
           sort_by: "rating:desc",
-          sort_by: "release_year:desc",
           page: 1,
           page_size: 10,
         },
