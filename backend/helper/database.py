@@ -6,10 +6,10 @@ import motor.motor_asyncio
 from pydantic import ValidationError
 from pymongo import ASCENDING, DESCENDING
 
-from Backend.logger import LOGGER
-from Backend.config import Telegram
-from Backend.helper.encrypt import encode_string
-from Backend.helper.modal import Episode, MovieSchema, QualityDetail, Season, TVShowSchema
+from backend.logger import LOGGER
+from backend.config import Telegram
+from backend.helper.encrypt import encode_string
+from backend.helper.modal import Episode, MovieSchema, QualityDetail, Season, TVShowSchema
 
 
 class Database:
