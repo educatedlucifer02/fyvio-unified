@@ -6,9 +6,9 @@ import { Button } from '@nextui-org/button';
 import SEO from '../components/SEO';
 import MoviesAndSeriesDetailsSections from '../components/MoviesAndSeriesDetailsSections';
 import Similars from '../components/Similars';
-import { BASE } from '../utils/constants';
 
 const TvDetails = () => {
+  const BASE = import.meta.env.VITE_BASE_URL; // Base URL for backend
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState([]);
@@ -37,7 +37,7 @@ const TvDetails = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, BASE]);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -52,7 +52,7 @@ const TvDetails = () => {
     };
 
     fetchEpisodes();
-  }, [id, selectedSeason]);
+  }, [id, selectedSeason, BASE]);
 
   if (loading) {
     return (
