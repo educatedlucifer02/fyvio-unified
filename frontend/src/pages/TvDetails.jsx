@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Card, Button } from '@nextui-org/react';
+import { Card } from '@nextui-org/card';
+import { Button } from '@nextui-org/button';
 import SEO from '../components/SEO';
 import MoviesAndSeriesDetailsSections from '../components/MoviesAndSeriesDetailsSections';
 import Similars from '../components/Similars';
