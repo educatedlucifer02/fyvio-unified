@@ -1,6 +1,6 @@
 from time import time
 from typing import Any, Dict, List, Optional, Union
-from Backend.helper.encrypt import decode_string
+from backend.helper.encrypt import decode_string
 from fastapi import FastAPI, Query, Request, HTTPException
 from fastapi.responses import StreamingResponse, HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,15 +12,15 @@ import math
 import os
 from pathlib import Path
 
-from Backend.logger import LOGGER
-from Backend.config import Telegram
-from Backend.pyrofork import StreamBot, work_loads, multi_clients
-from Backend.helper.exceptions import InvalidHash
-from Backend.helper.custom_dl import ByteStreamer
+from backend.logger import LOGGER
+from backend.config import Telegram
+from backend.pyrofork import StreamBot, work_loads, multi_clients
+from backend.helper.exceptions import InvalidHash
+from backend.helper.custom_dl import ByteStreamer
 from fastapi.middleware.cors import CORSMiddleware
-from Backend.helper.pyro import get_readable_time
+from backend.helper.pyro import get_readable_time
 from telegram.constants import ChatMemberStatus
-from Backend import StartTime, __version__, db
+from backend import StartTime, __version__, db
 
 app = FastAPI()
 class_cache = {}
@@ -30,7 +30,7 @@ static_dir = Path("../static")
 if static_dir.exists():
     app.mount("/assets", StaticFiles(directory=str(static_dir / "assets")), name="assets")
 
-templates = Jinja2Templates(directory="Backend/fastapi/templates")
+templates = Jinja2Templates(directory="backend/fastapi/templates")
 
 app.add_middleware(
     CORSMiddleware,
